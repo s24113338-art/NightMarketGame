@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coin Toss Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="receipt">
+  <div class="receipt-title">History Receipt</div>
+  <div id="receiptLog"></div>
+</div>
+
+<div class="game">
+  <h1>COIN TOSS</h1>
+
+  <div class="balance">
+    Balance: $<span id="balance">0</span>
+  </div>
+
+  <div class="topup">
+    Top Up:
+    <button data-add="10">+10</button>
+    <button data-add="50">+50</button>
+    <button data-add="100">+100</button>
+  </div>
+
+  <div class="wager">
+    Wager (Divisible by 10):
+    <input id="wager" type="number" step="10" min="10" value="10">
+  </div>
+
+  <div class="coin-area">
+    <div id="coin">🪙</div>
+  </div>
+
+  <div id="numberTable" class="table"></div>
+
+  <button id="tossBtn">TOSS COIN</button>
+
+  <div id="notification" class="notification"></div>
+
+  <div class="history">
+    <h3>Winning Number History</h3>
+    <div id="historyList"></div>
+  </div>
+
+  <footer>™ Game Coded by: 24113338-安德里</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
