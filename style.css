@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #222, #000);
+  color: white;
+  overflow: hidden;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.game {
+  position: relative;
+  z-index: 1;
+  width: 420px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.65);
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.15);
+  text-align: center;
+}
+
+.balance { font-size: 1.4em; margin-bottom: 6px; }
+.topup { font-size: 0.85em; margin-bottom: 10px; }
+.topup button { margin: 2px; }
+.wager { margin-bottom: 10px; }
+
+/* FIX: Coin fixed to screen for precise number landing */
+#coin {
+  position: fixed;
+  font-size: 32px;
+  z-index: 999;
+  pointer-events: none;
+  left: 50%;
+  top: 50px;
+  transition: left 0.28s ease, top 0.28s cubic-bezier(.25,.8,.25,1);
+}
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.number {
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.number.selected { background: rgba(255,255,255,0.15); }
+.number.win { box-shadow: 0 0 20px white; border-color: white; }
+
+button { padding: 8px 14px; border: none; border-radius: 8px; background: white; color: black; cursor: pointer; }
+
+/* FIX: Centered Fixed History Position */
+.history { margin-top: 15px; }
+#historyList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 80px;
+}
+
+/* The "order" property ensures the latest is always in the middle */
+.latest-win {
+  font-size: 3.5em; 
+  font-weight: bold;
+  color: #fff;
+  min-width: 100px;
+  text-align: center;
+  order: 2; /* Middle position */
+}
+
+.old-win {
+  font-size: 1.4em;
+  opacity: 0.3;
+  min-width: 50px;
+  text-align: center;
+}
+
+.old-win:nth-child(2) { order: 1; } /* Second newest on the left */
+.old-win:nth-child(3) { order: 3; } /* Third newest on the right */
+
+.notification { height: 24px; margin-top: 8px; font-weight: bold; color: #00ff00; }
+
+.receipt {
+  position: fixed;
+  top: 20px; right: 20px; width: 220px; max-height: 300px;
+  background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px; padding: 10px; font-size: 0.75em; overflow-y: auto; z-index: 2;
+}
+
+.receipt-entry.win { color: #00ff00; }
+.receipt-entry.lose { color: #ff4444; }
+
+footer { margin-top: 12px; font-size: 0.7em; opacity: 0.6; }
